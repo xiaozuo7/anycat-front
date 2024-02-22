@@ -1,10 +1,7 @@
-import Vue from 'vue';
-import HomePage from './HomePage.vue';
-import router from './router';
+import { createApp } from 'vue';
+import App from './App.vue';
+import axiosPlugin from './plugins/axios';
 
-Vue.config.productionTip = false;
-
-new Vue({
-  router,
-  render: h => h(HomePage)
-}).$mount('#HomePage');
+const app = createApp(App);
+app.use(axiosPlugin);
+app.mount('#app');
