@@ -1,4 +1,4 @@
-FROM node:20.10.0 AS builder
+FROM node:20 AS builder
 
 WORKDIR /app
 
@@ -17,5 +17,3 @@ COPY --from=builder /app/anycat.conf /etc/nginx/conf.d
 
 
 EXPOSE 80
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
