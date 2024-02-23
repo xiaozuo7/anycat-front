@@ -19,7 +19,7 @@ export default {
   methods: {
     async encrypt() {
       try {
-        const response = await this.$axios.post('http://127.0.0.1:8080/api/v1/base_encode', {
+        const response = await this.$axios.post('http://139.159.249.79/api/v1/base_encode', {
           content: this.inputText
         });
         this.outputText = response.data.data;
