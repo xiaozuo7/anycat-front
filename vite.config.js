@@ -6,6 +6,12 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ArcoResolver, VueUseComponentsResolver, VueUseDirectiveResolver } from 'unplugin-vue-components/resolvers'
+// icon 组件
+import Icons from 'unplugin-icons/vite'
+// icon 自动引入解析器
+import IconsResolver from 'unplugin-icons/resolver'
+// icon 加载 loader
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
 
 
@@ -28,7 +34,7 @@ export default defineConfig({
         /\.md$/ // .md
       ],
       // imports 指定自动引入的包位置（名）
-      imports: ['vue', 'pinia', 'vue-router', '@vueuse/core'],
+      imports: ['vue', 'pinia', 'vue-router',],
       // 生成相应的自动导入json文件。
       eslintrc: {
         // 启用
@@ -42,7 +48,7 @@ export default defineConfig({
     }),
     Components({
       // imports 指定组件所在目录，默认为 src/components
-      dirs: ['src/components/', 'src/view/'],
+      dirs: ['src/components/', 'src/view/', '@vueuse/core'],
       // 需要去解析的文件
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [
@@ -50,8 +56,26 @@ export default defineConfig({
           sideEffect: true
         }),
         VueUseComponentsResolver(),
-        VueUseDirectiveResolver()
+        VueUseDirectiveResolver(),
+        // icon组件自动引入解析器使用
+        IconsResolver({
+          prefix: "icon",
+          customCollections: ["user", "home"],
+        }),
       ],
-    })
+    }),
+    Icons({
+      compiler: 'vue3',
+      customCollections: {
+        // user图标集，给svg文件设置 fill="currentColor" 属性，使图标的颜色具有适应性
+        user: FileSystemIconLoader("src/assets/svg/user", (svg) => 
+          svg.replace(/^<svg /, '<svg fill="currentColor" ')),
+        // home 模块图标集
+        home: FileSystemIconLoader("src/assets/svg/home", (svg) =>
+          svg.replace(/^<svg /, '<svg fill="currentColor" ')
+        ),
+      },
+      autoInstall: true,
+    }),
   ]
 })
