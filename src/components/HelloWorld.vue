@@ -1,5 +1,5 @@
 <script setup>
-const name = ref('isboyjc')
+const name = ref('anycat')
 </script>
 <template>
   <div>hello {{ name }}, this is helloworld components</div>
