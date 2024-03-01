@@ -28,5 +28,6 @@ module.exports = {
   rules: {
     semi: ["warn", "never"], // 禁止尾部使用分号
     "no-debugger": "warn", // 禁止出现 debugger
+    "vue/multi-word-component-names": "off", // 关闭多个单词的组件名
   },
 }
