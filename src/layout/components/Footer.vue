@@ -16,9 +16,9 @@
           <a-image width="100" :src="getConfig('me.gzh')" />
         </template> -->
       <!-- </a-trigger> -->
-      <span> Copyright ⓒ 2024 by Anycat</span>
-      <a-link href="https://github.xiaozuo7.com/" target="_blank"> Github </a-link>
-      <a-link href="https://beian.miit.gov.cn/" target="_blank"> ICP备案 </a-link>
+      <span> Copyright ⓒ 2024 by anycat.top </span>
+      <a-link href="https://beian.miit.gov.cn/" target="_blank"> 渝ICP备2024023030号 </a-link>
+      <!-- <a-link href="https://github.xiaozuo7.com/" target="_blank"> Github </a-link> -->
     </div>
   </div>
 </template>
