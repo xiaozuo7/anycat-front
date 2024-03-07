@@ -5,7 +5,7 @@ export const menuRouter = [
     path: 'devtools',
     name: 'DevTools',
     meta: {
-      title: '开发工具',
+      title: '工具菜单',
       icon: markRaw(IconMaterialSymbolsCodeBlocksOutline)
     },
     redirect: { name: 'RegularPage' },
@@ -14,9 +14,9 @@ export const menuRouter = [
         path: 'regular',
         name: 'RegularPage',
         meta: {
-          title: '正则在线校验'
+          title: 'Base64加解密'
         },
-        component: () => import('@/views/RegularPage.vue')
+        component: () => import('@/views/Base64.vue')
       }
     ]
   }

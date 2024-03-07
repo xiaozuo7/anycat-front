@@ -1,6 +1,18 @@
 <script setup>
 import { menuRouterFormatList } from '@/router/menuRouter.js'
 
+// 新增
+const props = defineProps({
+  mode: {
+    type: String,
+    default: 'horizontal'
+  }
+})
+
+// 菜单模式， horizontal 水平，vertical 垂直
+const mode = toRef(props, 'mode')
+
+
 // 菜单数据
 const menuList = ref(menuRouterFormatList)
 
@@ -21,7 +33,7 @@ const selectedKeys = computed(() => [route.path])
     auto-open-selected
     :selected-keys="selectedKeys"
     @menuItemClick="onClickMenuItem"
-    mode="horizontal"
+    :mode="mode"
     :accordion="true"
   >
     <MenuItem v-for="menu of menuList" :key="menu.path" :menu="menu" />

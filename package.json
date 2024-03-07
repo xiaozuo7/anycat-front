@@ -16,12 +16,16 @@
   "dependencies": {
     "@vueuse/core": "^10.8.0",
     "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@arco-design/web-vue": "^2.54.5",
     "@iconify-json/ep": "^1.1.14",
+    "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/icon-park-outline": "^1.1.15",
+    "@iconify-json/jam": "^1.1.8",
     "@iconify-json/maki": "^1.1.23",
     "@iconify-json/material-symbols": "^1.1.73",
     "@iconify-json/mdi": "^1.1.64",

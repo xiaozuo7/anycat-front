@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Layout',
-      component: () => import('@/layout/SwitchIndex.vue'),
+      component: () => import('@/layout/SidebarLayout.vue'),
       redirect: '/',
       children: [
         {
