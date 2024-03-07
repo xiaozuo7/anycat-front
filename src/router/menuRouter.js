@@ -8,11 +8,11 @@ export const menuRouter = [
       title: '工具菜单',
       icon: markRaw(IconMaterialSymbolsCodeBlocksOutline)
     },
-    redirect: { name: 'RegularPage' },
+    redirect: { name: 'Base64' },
     children: [
       {
-        path: 'regular',
-        name: 'RegularPage',
+        path: 'base64',
+        name: 'Base64',
         meta: {
           title: 'Base64加解密'
         },
@@ -30,7 +30,7 @@ export const menuRouter = [
  */
 export const menuRouterFormat = (router, parentPath) => {
     return router.map(item => {
-      // 拼接路由，例：'devtools' -> '/devtools'  'regular' -> '/devtools/regular'
+      // 拼接路由，例：'devtools' -> '/devtools'  'base64' -> '/devtools/base64'
       item.path = parentPath ? `${parentPath}/${item.path}` : `/${item.path}`
   
       // 存在 children 属性，且 children 数组长度大于 0，开始递归
