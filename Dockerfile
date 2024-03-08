@@ -12,6 +12,7 @@ RUN npm run build
 
 FROM nginx:latest
 
+RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' > /etc/timezone
 COPY --from=builder /app/dist /usr/share/nginx/html
 COPY --from=builder /app/anycat.conf /etc/nginx/conf.d
 
