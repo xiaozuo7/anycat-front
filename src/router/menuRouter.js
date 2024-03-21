@@ -17,6 +17,14 @@ export const menuRouter = [
           title: 'Base64加解密'
         },
         component: () => import('@/views/Base64.vue')
+      },
+      {
+        path: 'translate',
+        name: 'translate',
+        meta: {
+          title: '在线翻译'
+        },
+        component: () => import('@/views/Translate.vue')
       }
     ]
   }
