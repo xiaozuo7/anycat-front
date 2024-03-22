@@ -3,9 +3,9 @@
     <div class="title">在线翻译</div>
     <a-textarea class="text1" placeholder="请输入要翻译的内容" allow-clear v-model="text1" />
     <div align="start" class="space-content">
-      <a-dropdown position="bottom">
-        <a-button>
-          {{ fromLanguage }}
+      <a-dropdown position="br">
+        <a-button shape="round">
+          源语言：{{ fromLanguage }}
           <template #icon>
             <icon-flowbite:angle-down-outline />
           </template>
@@ -21,9 +21,11 @@
         </template>
       </a-dropdown>
 
-      <a-dropdown position="bottom">
-        <a-button
-          >{{ toLanguage }}
+      <icon-octicon:arrow-switch-24 />
+
+      <a-dropdown position="br">
+        <a-button shape="round"
+          >目标语言：{{ toLanguage }}
           <template #icon>
             <icon-flowbite:angle-down-outline />
           </template>
@@ -37,7 +39,7 @@
           >
         </template>
       </a-dropdown>
-      <a-button class="button" type="primary" @click="trans">翻译</a-button>
+      <a-button class="button" shape="round" type="primary" @click="trans" :loading="loading">翻译</a-button>
     </div>
     <a-textarea class="text2" placeholder="翻译结果" allow-clear v-model="text2" />
   </div>
@@ -49,11 +51,18 @@ const text1 = ref('')
 const text2 = ref('')
 const fromLanguage = ref('自动检测')
 const toLanguage = ref('中文')
+const loading = ref(false)
 
 const fromLanguageOptions = {
   自动检测: 'auto',
   中文: 'zh',
-  英文: 'en'
+  英文: 'en',
+  日语: 'jp',
+  韩语: 'kor',
+  粤语: 'yue',
+  法语: 'fra',
+  西班牙语: 'spa',
+  俄语: 'ru'
 }
 
 const toLanguageOptions = Object.fromEntries(
@@ -69,6 +78,12 @@ function selectToLanguage(language) {
 }
 
 async function trans() {
+  if (!text1.value) {
+    text2.value = ''
+    return
+  }
+  loading.value = true
+
   const response = await fetch('https://anycat.top/api/v1/trans', {
     method: 'POST',
     headers: {
@@ -90,6 +105,8 @@ async function trans() {
   } else {
     text2.value = '翻译失败'
   }
+
+  loading.value = false
 }
 </script>
 
@@ -112,6 +129,7 @@ async function trans() {
   margin-bottom: 10px;
 }
 .button {
-  width: 100px;
+  width: 150px;
+  left: 70px;
 }
 </style>
