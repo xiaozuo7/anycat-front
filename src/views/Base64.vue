@@ -8,9 +8,8 @@
       v-model="text1"
     />
     <div align="start" class="space-content">
-      <a-button type="primary" @click="encode">编码</a-button>
-      <a-button @click="decode">解码</a-button>
-
+      <a-button type="primary" @click="encode">编码 Encode</a-button>
+      <a-button @click="decode">解码 Decode</a-button>
       <a-button @click="exchange" class="exchange"
         ><template #icon><icon-system-uicons:chevron-open /></template>交换</a-button
       >
