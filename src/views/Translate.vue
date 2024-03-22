@@ -4,7 +4,7 @@
     <a-textarea class="text1" placeholder="请输入要翻译的内容" allow-clear v-model="text1" />
     <div align="start" class="space-content">
       <a-dropdown position="br">
-        <a-button shape="round">
+        <a-button shape="round" type="outline">
           源语言：{{ fromLanguage }}
           <template #icon>
             <icon-flowbite:angle-down-outline />
@@ -24,7 +24,7 @@
       <icon-octicon:arrow-switch-24 />
 
       <a-dropdown position="br">
-        <a-button shape="round"
+        <a-button shape="round" type="outline"
           >目标语言：{{ toLanguage }}
           <template #icon>
             <icon-flowbite:angle-down-outline />
