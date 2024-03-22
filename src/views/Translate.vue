@@ -83,8 +83,10 @@ async function trans() {
 
   const data = await response.json()
   if (data.status === 200) {
-    const translation = data.data.trans_result[0].dst
-    text2.value = translation
+    let translations = data.data.trans_result.map((result) => result.dst)
+    const translationText = translations.join('\n')
+
+    text2.value = translationText
   } else {
     text2.value = '翻译失败'
   }
