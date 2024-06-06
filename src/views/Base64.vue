@@ -39,8 +39,8 @@ function exchange() {
 <style scoped>
 .text1,
 .text2 {
-  width: 600px;
-  height: 200px;
+  width: 800px;
+  height: 250px;
 }
 .space-content {
   width: 600px;
